@@ -3,8 +3,7 @@ function tee(iterable = [], n = 2) {
   if (!iterable.next) {
     iterable =
       iterable[Symbol.iterator]() ??
-      iterable[Symbol.asyncIterator]() ??
-      [][Symbol.iterator].call(iterable);
+      iterable[Symbol.asyncIterator]() ?? [][Symbol.iterator].call(iterable);
   }
   const iterators = [];
   const values = [];
@@ -36,8 +35,7 @@ function ztee(iterable = [], n = 2) {
   if (!iterable.next) {
     iterable =
       iterable[Symbol.iterator]() ??
-      iterable[Symbol.asyncIterator]() ??
-      [][Symbol.iterator].call(iterable);
+      iterable[Symbol.asyncIterator]() ?? [][Symbol.iterator].call(iterable);
   }
   const iterators = [];
   const values = [];
@@ -72,14 +70,12 @@ function ztee(iterable = [], n = 2) {
   return iterators;
 }
 
-
 function asyncTee(iterable = [], n = 2) {
   n = Math.max(n, 2);
   if (!iterable.next) {
     iterable =
       iterable[Symbol.asyncIterator]() ??
-      iterable[Symbol.iterator]() ??
-      [][Symbol.iterator].call(iterable);
+      iterable[Symbol.iterator]() ?? [][Symbol.iterator].call(iterable);
   }
   const iterators = [];
   const values = [];
